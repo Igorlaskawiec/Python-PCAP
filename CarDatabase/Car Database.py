@@ -37,13 +37,17 @@ def remove_car():
 def print_car_database():
     for car_model, car_info in car_database.items():
         print(f'Car Info: {car_info}')
-    print('------------------')
+    print('------------------\n')
 
+def count_cars():
+    count = len(car_database)
+    print(f'Total cars in the database:',count)
+    print('------------------\n')
 
 #MAIN FUNCTION
 def main():
     while True:
-        print("What you want to do?\n1. Add a car\n2. Remove a car\n3. Print the car dagittabase\n4. Exit\n")
+        print("What you want to do?\n1. Add a car\n2. Remove a car\n3. Print the car dagittabase\n4. Count cars\n5. Exit\n")
         choice = input("Enter your choice: ")
         if choice == '1':
             add_car()
@@ -52,7 +56,10 @@ def main():
         elif choice == '3':
             print_car_database()
         elif choice == '4':
+            count_cars()
+        elif choice == '5':
             break
+
 
 
 main()
