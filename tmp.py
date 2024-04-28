@@ -7,16 +7,20 @@ def clear_window(window):
 
 def show_login_page():
     clear_window(root)
+    title = Label(root, text="Windows debloat tool", font=("Arial", 25, "bold"), bg="#32353b").pack()
     user_name = Label(root, text = "Username").place(x = 40,y = 60)  
     user_name_input_area = Entry(root, textvariable=username_var, width = 30).place(x = 110, y = 60)
     user_password = Label(root, text = "Password").place(x = 40,y = 100) 
     password_input_area = Entry(root, textvariable=password_var, show="*", width = 30).place(x = 110, y = 100)
-    save_button = Button(root, text="Submit", command=save_credentials).place(x = 110, y = 140)
+    submit_button = Button(root, text="Submit", command=save_credentials).place(x = 110, y = 140)
 
 def show_success_page():
     clear_window(root)
-    success_label = Label(root, text="Login successful!").pack()
+    success_label = Label(root, text="Login successful!")
+    success_label.pack()
+    root.after(2500, success_label.destroy)  
     back_button = Button(root, text="Back", command=show_login_page).pack()
+
 
 def save_credentials():
     username = username_var.get().lower()
